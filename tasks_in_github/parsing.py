@@ -1,6 +1,11 @@
 import json
 import os
 
+file_path = r"C:\Users\Erasyl\OneDrive\Desktop\PP2_problems\tasks_in_github\sample-data.json" 
+
+with open(file_path, 'r') as f:
+    data = json.load(f)
+
 def print_interface_status(json_obj):
 
     print("Interface Status")
@@ -21,14 +26,10 @@ def print_interface_status(json_obj):
         print(f"{dn:<50} {descr:<20} {speed:<10} {mtu}")
 
 def main():
-    file_name = 'sample-data.json'
-
-    if not os.path.exists(file_name):
-        print(f"Ошибка: Файл {file_name} не найден в текущей директории.")
-        return
+    
 
     try:
-        with open(file_name, 'r', encoding='utf-8') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
             print_interface_status(data)
