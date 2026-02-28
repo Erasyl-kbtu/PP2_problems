@@ -6,6 +6,5 @@ def divisible_by_3_and_4(n):
 n = int(input())
 gen = divisible_by_3_and_4(n)
 
-
 for val in gen:
     print(val, end = " ")

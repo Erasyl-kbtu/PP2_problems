@@ -24,6 +24,6 @@ diffs = deep_diff(a, b)
 
 if diffs:
     for d in diffs:
-        print(d)
+        print(d, end = "")
 else:
     print("No differences")
