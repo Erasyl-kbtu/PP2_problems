@@ -4,4 +4,8 @@ def divisible_by_3_and_4(n):
             yield i
 
 n = int(input())
-print(*divisible_by_3_and_4(n))
+gen = divisible_by_3_and_4(n)
+
+
+for val in gen:
+    print(val, end = " ")

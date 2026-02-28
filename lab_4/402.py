@@ -12,7 +12,7 @@ try:
         print(first, end="")
         # Все остальные числа печатаем с запятой перед ними
         for val in gen:
-            print(",", val, end = "")
+            print(",", val, sep = "", end = "")
     
 except ValueError:
     print("idi v pen")

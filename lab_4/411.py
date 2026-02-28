@@ -15,4 +15,4 @@ patch = json.loads(input())
 
 result = apply_patch(source, patch)
 
-print(json.dumps(result, sort_keys=True))
+print(json.dumps(result, sort_keys=True, separators = (",", ":")))
