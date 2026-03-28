@@ -23,6 +23,6 @@ for name, score in zipped:
 
 zipped.sort(key=lambda x: x[1], reverse=True)
 
-print("Rankings:")
+print("\nRankings:")
 for index, (name, score) in enumerate(zipped, start=1):
     print(f"{index}. {name}: {score}")
