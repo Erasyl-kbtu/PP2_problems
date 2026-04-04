@@ -16,12 +16,15 @@ def create_table():
     CREATE TABLE IF NOT EXISTS phonebook (
         id SERIAL PRIMARY KEY,
         username VARCHAR(50) UNIQUE NOT NULL,
-        first_name VARCHAR(50),
+        first_name VARCHAR(100) NOT NULL,
         phone_number VARCHAR(20) NOT NULL
-    );
-    """
+    );"""
+
+   
+
     with get_connection() as conn:
         with conn.cursor() as cur:
+            
             cur.execute(query)
             conn.commit()
     print("Таблица готова к работе.")
@@ -30,9 +33,12 @@ def create_table():
 def insert_from_csv(file_path):
     # Формат CSV должен быть: username,first_name,phone_number
     try:
+        file_path = input("Введите путь к CSV файлу (или нажмите Enter для contacts.csv): ")
+        if not file_path:
+            file_path = "contacts.csv"
         with open(file_path, mode='r', encoding='utf-8') as f:
             reader = csv.reader(f)
-            next(reader)  # Пропускаем заголовок
+            next(reader)
             with get_connection() as conn:
                 with conn.cursor() as cur:
                     for row in reader:
@@ -82,7 +88,7 @@ def update_contact():
 
 # 5. Поиск с фильтрами
 def search_contacts():
-    print("Поиск по: 1 - Имени, 2 - Префиксу телефона")
+    print("Поиск по: 1 - Имени, 2 - телефону")
     choice = input("> ")
     search_term = input("Введите значение для поиска: ")
     
@@ -123,7 +129,7 @@ def main():
         print("5. Удалить")
         print("0. Выход")
         
-        cmd = input("Выберите действие: ")
+        cmd = input("Выберите действие:(номер) ")
         if cmd == '1': insert_from_csv('contacts.csv')
         elif cmd == '2': insert_manual()
         elif cmd == '3': update_contact()
@@ -134,5 +140,4 @@ def main():
 
 if __name__ == "__main__":
     main()
- 
 
