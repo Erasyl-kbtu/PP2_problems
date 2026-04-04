@@ -3,7 +3,6 @@ import psycopg2
 import csv
 from dotenv import load_dotenv
 
-# Загружаем переменные из .env
 load_dotenv()
 DATABASE_URL = os.getenv('DATABASE_URL')
 
@@ -129,13 +128,13 @@ def main():
         print("5. Удалить")
         print("0. Выход")
         
-        cmd = input("Выберите действие:(номер) ")
-        if cmd == '1': insert_from_csv('contacts.csv')
-        elif cmd == '2': insert_manual()
-        elif cmd == '3': update_contact()
-        elif cmd == '4': search_contacts()
-        elif cmd == '5': delete_contact()
-        elif cmd == '0': break
+        a = input("Выберите действие:(номер) ")
+        if a == '1': insert_from_csv('contacts.csv')
+        elif a == '2': insert_manual()
+        elif a == '3': update_contact()
+        elif a == '4': search_contacts()
+        elif a == '5': delete_contact()
+        elif a == '0': break
         else: print("Неверная команда.")
 
 if __name__ == "__main__":
