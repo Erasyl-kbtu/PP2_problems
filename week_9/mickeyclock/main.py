@@ -1,6 +1,6 @@
 import pygame
 import sys
-from clock import MickeyClock
+from week_9.mickeyclock.clock import MickeyClock
 
 def main():
     pygame.init()
