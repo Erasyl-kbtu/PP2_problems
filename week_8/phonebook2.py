@@ -18,9 +18,36 @@ def create_table():
         first_name VARCHAR(100) NOT NULL,
         phone_number VARCHAR(20) NOT NULL
     );"""
+
+def create_functions():
+    queries = [
+        """CREATE OR REPLACE FUNCTION search_phonebook(
+    p_id INT DEFAULT NULL, 
+    p_username VARCHAR DEFAULT NULL, 
+    p_first_name VARCHAR DEFAULT NULL, 
+    p_phone_number VARCHAR DEFAULT NULL
+)
+RETURNS TABLE (
+    id INT,
+    username VARCHAR,
+    first_name VARCHAR,
+    phone_number VARCHAR
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT t.id, t.username, t.first_name, t.phone_number
+    FROM phonebook_table t
+    WHERE (p_id IS NULL OR t.id = p_id)
+      AND (p_username IS NULL OR t.username ILIKE '%' || p_username || '%')
+      AND (p_first_name IS NULL OR t.first_name ILIKE '%' || p_first_name || '%')
+      AND (p_phone_number IS NULL OR t.phone_number LIKE '%' || p_phone_number || '%');
+END;
+$$ LANGUAGE plpgsql;"""
+    ]
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(query)
+            for query in queries:
+                cur.execute(query)
         conn.commit()
     print("База данных готова к работе.")
 
