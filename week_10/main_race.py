@@ -4,7 +4,7 @@ import time
 
 pygame.init() 
 
-WIDTH = 800
+WIDTH = 600
 HEIGHT = 800
 screen = pygame.display.set_mode((WIDTH, HEIGHT)) # Creating a game window
 
@@ -33,7 +33,7 @@ bg_y = 0 # Y-coordinate for the scrolling background
 
 # Custom User Event to increase speed periodically
 INC_SPEED = pygame.USEREVENT + 1
-pygame.time.set_timer(INC_SPEED, 1000) # Triggers every 1000 milliseconds (1 second)
+pygame.time.set_timer(INC_SPEED, 10000) # Triggers every 10000 milliseconds (10 seconds)
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
