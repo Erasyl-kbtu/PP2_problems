@@ -1,7 +1,7 @@
 import pygame
 import sys
 import os
-from week_9.player.player import MusicPlayer
+from player import MusicPlayer
 
 def main():
     pygame.init()
