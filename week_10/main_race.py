@@ -41,7 +41,7 @@ class Player(pygame.sprite.Sprite):
         self.image = image_player
         self.rect = self.image.get_rect()
         self.rect.centerx = WIDTH // 2
-        self.rect.bottom = HEIGHT - 20 # Slightly raised from the very bottom
+        self.rect.bottom = HEIGHT - 40 # Slightly raised from the very bottom
         self.speed = 5
 
     def move(self):
