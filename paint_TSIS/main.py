@@ -41,8 +41,8 @@ current_color = BLACK
 current_tool = "pen"
 current_size = brush_sizes["S(1)"]
 
-font = pygame.font.SysFont("Verdana", 14)
-text_font = pygame.font.SysFont("Verdana", 24)
+font = pygame.font.SysFont("Arial", 14)
+text_font = pygame.font.SysFont("Arial", 24)
 
 # Text Tool state
 typing_text = False

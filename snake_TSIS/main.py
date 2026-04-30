@@ -2,8 +2,8 @@ import sys
 import pygame
 from config import *
 import db
-import pg8000.dbapi
-from game import run_game
+import psycopg2
+from snake_mod import run_game
 
 # Initialize pygame
 pygame.init()

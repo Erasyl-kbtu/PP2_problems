@@ -32,12 +32,6 @@ POWERUP_SHIELD_COLOR = (255, 165, 0)  # Orange
 # Obstacle Color
 OBSTACLE_COLOR = (139, 69, 19)        # Brown / Wood
 
-# Database Configuration
-DB_HOST = "localhost"
-DB_PORT = 5434
-DB_USER = "postgres"
-DB_PASS = "password"
-DB_NAME = "snake_db"
 
 # UI Colors
 UI_BG = (30, 30, 40)
